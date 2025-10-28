@@ -293,3 +293,90 @@ print(chr(97))   # 'a'
 strings = ["hello", "world", "from", "python"]
 print(" ".join(strings))  # 'hello world from python'
 print("-".join(strings))  # 'hello-world-from-python'
+
+
+
+
+
+# Queues (double-ended queues)
+from collections import deque
+
+queue = deque() # create empty deque
+
+queue.append(1) # add to end
+queue.appendleft(2) # add to front
+print(queue)  # deque([2, 1])
+
+queue.pop() # remove from end
+queue.popleft() # remove from front
+
+
+
+
+# HashSet (sets). 
+# Unordered collection of unique elements
+
+mySet = set() # create empty set
+mySet.add(1)
+mySet.add(2)
+mySet.add(1) # duplicate, will be ignored
+
+print(mySet)  # {1, 2}
+print(1 in mySet)  # True 
+print(len(mySet))  # 2
+
+mySet.remove(1)
+print(mySet)  # {2}
+print(1 in mySet)  # False. searching is O(1) on average
+
+# List of elements to set
+arr = [1, 2, 2, 3, 4, 4]
+arr = set(arr) # {1, 2, 3, 4}
+
+# Set comprehensions
+squares = {x**2 for x in range(5)} # {0, 1, 4, 9, 16}
+print(squares)
+
+
+
+
+# HashMap (aka dictionaries)
+# Unordered collection of key-value pairs
+
+myMap = {} # create empty dict
+myMap["a"] = 1
+myMap["b"] = 2
+myMap["a"] = 3 # overwrites value for key "a". No duplicate keys
+
+print(myMap)  # {'a': 1, 'b': 2}
+print(myMap["a"])  # 1
+print("a" in myMap)  # True. Search/checking key existence is O(1) on average
+print(len(myMap))  # 2
+
+myMap.get("a", 0) # returns 0 if key "a" not found
+
+del myMap["a"] # remove key "a"
+print(myMap.pop("b")) # remove key "b" and return its value
+
+# Initialize dict with key-value pairs
+myMap = {"x": 10, "y": 20} # initialize with key-value pairs
+
+# Dict comprehensions
+squares = {x: x**2 for x in range(5)} # {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
+print(squares)
+
+
+# Loop through dict
+myMap = {"a": 1, "b": 2, "c": 3}
+
+# Loop through keys
+for key in myMap:
+    print(key, myMap[key])  # Access key and value
+
+# Loop through values without keys
+for val in myMap.values():
+    print(val)  # Access values
+
+# Loop through key-value pairs (items)
+for key, val in myMap.items():
+    print(key, val)  # Access key and value
