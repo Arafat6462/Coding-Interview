@@ -451,3 +451,58 @@ heapq.heapify(arr) # transforms list into a heap in-place
 print(arr)  # [1, 2, 8, 3, 5] (heap order, not sorted order)
 while arr:
     print(heapq.heappop(arr))  # pops smallest element
+
+
+
+
+
+# Functions
+# Functions can return multiple values using tuples
+def add(a, b):
+    return a , b
+
+print(add(2, 3))  # (2, 3)
+
+# Nested functions have access to outer function variables
+def outer(a, b):
+    c = 'c'
+    def inner():
+        return a + b + c
+    return inner()
+
+print(outer("a", "b"))  # 'abc'
+
+
+# Can modify objects but not reassign unless declared nonlocal/global
+def double(arr, val):
+    def helper():
+        # Modifies the list in place
+        for i in range(len(arr)):
+            arr[i] *= 2
+        # will only modify val in helper's scope
+        # val *= 2
+
+        nonlocal val  # declare val as nonlocal to modify outer function variable
+        val *= 2
+    helper()
+    print("Inside double:", arr, val)
+myList = [1, 2, 3]
+myVal = 10
+double(myList, myVal)
+
+
+
+
+# Class
+class MyClass:
+    # Constructor
+    def __init__(self, nums):
+        self.nums = nums  # instance variable
+        self.size = len(nums) # instance variable
+
+    # self keyword refers to the instance
+    def getSize(self):
+        return self.size
+    
+    def getDoubleSize(self):
+        return 2 * self.getSize()  # call another method using self
