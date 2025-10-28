@@ -406,3 +406,48 @@ print((4, 5) in mySet)  # True
 
 # List can't be used as keys in hash map/set
 # myMap = { [1, 2]: 3 }  # TypeError: unhashable type: 'list'
+
+
+
+
+
+# Heaps
+# Under the hood, heaps are implemented using lists
+# Heaps are mainly used to implement priority queues. by default, python has min-heaps
+import heapq
+
+minHeap = [] # create empty min-heap
+heapq.heappush(minHeap, 3) # add element
+heapq.heappush(minHeap, 2) 
+heapq.heappush(minHeap, 4)
+
+# Min is always at index 0
+print(minHeap[0])  # 2
+
+# Loop to pop elements in sorted order
+while minHeap: # while heap is not empty
+    print(heapq.heappop(minHeap))  # pops smallest element
+
+
+# Max-heap.
+# Python's heapq only provides min-heap, but max-heap can be simulated by pushing negative values
+maxHeap = [] # create empty max-heap
+heapq.heappush(maxHeap, -3) # add negative element
+heapq.heappush(maxHeap, -2)
+heapq.heappush(maxHeap, -4)
+
+# Max is at index 0 (as negative)
+print(-maxHeap[0])  # 4
+
+# Loop to pop elements in sorted order
+while maxHeap: # while heap is not empty
+    print(-heapq.heappop(maxHeap))  # pops largest element
+
+
+# Build heap from existing list (heapify)
+arr = [5, 3, 8, 1, 2]
+heapq.heapify(arr) # transforms list into a heap in-place
+
+print(arr)  # [1, 2, 8, 3, 5] (heap order, not sorted order)
+while arr:
+    print(heapq.heappop(arr))  # pops smallest element
