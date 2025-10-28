@@ -71,6 +71,10 @@ for i in range(2, 10, 2):
 for i in range(10, 2, -1):
     print(i)
 
+# For loop in reverse with step: iterates from 5 down to 1, stepping by -2
+for i in range(5, 0, -2):
+    print(i)
+
 
 
 
@@ -89,7 +93,7 @@ print(-3 // 2)  # -2
 # -3 / 2 is -1.5, floor division rounds down to -2
 # but int(-3 / 2) truncates towards zero to -1
 # Casting to int truncates towards zero (not always the same as floor division)
-print(int(-3 / 2)) # -1
+print(int(-3 / 2)) # -1, here first does true division then truncates towards zero
 
 
 
@@ -126,3 +130,83 @@ print(2**1000)  # Very large number
 # But still less than infinity
 print(2**1000 < float('inf'))  # True
 
+
+
+# Arrays (called lists in python). most common data structure next to hashmaps (dicts)
+arr = [1,2,3]
+print(arr) # [1, 2, 3]
+
+# List can be used as stacks, queues, etc.
+# Lists are dynamic sized.
+arr.append(4) # add to end
+arr.append(5)
+print(arr) # [1, 2, 3, 4, 5]
+
+arr.pop() # remove from end
+print(arr) # [1, 2, 3, 4]
+
+# unlike push/append and pop, insert takes O(n) time
+arr.insert(1, 10) # insert 10 at index 1
+print(arr) # [1, 10, 2, 3, 4]
+
+# Initialize arr of size n with all values as some value
+n = 5
+arr = [0] * n  # [0, 0, 0, 0, 0]
+print(arr)
+
+# Careful: -1 is not out of bounds, it means last element
+# Negative indexing accesses elements from the end
+arr = [1,2,3,4]
+print(arr[-1])  # 4
+print(arr[-2])  # 3
+
+# Sublists (aka slicing)
+# Similar to for loops, the end index is exclusive
+arr = [1,2,3,4,5]
+print(arr[1:3]) # [2, 3], from index 1 to 2. 3 is exclusive same as for loops
+print(arr[:3])  # [1, 2, 3], from start to before index 3
+print(arr[2:])  # [3, 4, 5], from index 2 to end
+print(arr[:])   # [1, 2, 3, 4, 5], whole array 
+
+
+
+
+# Unpacking arrays.
+arr = [1, 2, 3]
+a, b, c = arr
+print(a, b, c)  # 1 2 
+
+# Be careful: number of variables must match number of elements
+# a, b = arr  # ValueError: too many values to unpack (expected 2)
+a, b = [1, 2] # this is ok
+
+
+
+
+# Loop through array
+nums = [1, 2, 3, 4, 5]
+
+# Using index and length
+for i in range(len(nums)):
+    print(nums[i])  # Access by index
+
+# Directly iterating over elements. without using index
+for num in nums:
+    print(num)  # Direct access to elements
+
+# Using enumerate to get index and value
+for index, value in enumerate(nums):
+    print(index, value)  # Access index and value
+
+# Loop through multiple arrays simultaneously using zip
+# with unpacking
+arr1 = [1, 2, 3]
+arr2 = ['a', 'b', 'c']
+for num, char in zip(arr1, arr2):
+    print(num, char)  # Access elements from both arrays
+
+# In Different Length Arrays, zip stops at the shortest
+arr1 = [1, 2, 3, 4] # longer array
+arr2 = ['a', 'b'] # shorter array
+for num, char in zip(arr1, arr2):
+    print(num, char)  # Access elements from both arrays
