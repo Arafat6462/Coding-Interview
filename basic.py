@@ -210,3 +210,50 @@ arr1 = [1, 2, 3, 4] # longer array
 arr2 = ['a', 'b'] # shorter array
 for num, char in zip(arr1, arr2):
     print(num, char)  # Access elements from both arrays
+
+
+
+
+# Reverse array/list
+arr = ['a', 'b', 'c', 'd']
+arr.reverse() # In-place reverse. No return value. modifies original array
+print(arr)  # [5, 4, 3, 2, 1 ]
+
+# Sorting arrays/lists
+arr = [3, 1, 4, 5, 2]
+arr.sort()  # In-place sort. modifies original array. No return value. sorted in ascending order
+print(arr)  # [1, 2, 3, 4, 5
+
+arr.sort(reverse=True)  # Sort in descending order
+print(arr)  # [5, 4, 3, 2, 1
+
+# For custom sorting, use the key parameter with a function
+arr = ["apple", "banana", "cherry", "date"]
+arr.sort(key=len) # Sort by length of the string
+print(arr)  # ['date', 'apple', 'banana', 'cherry']
+
+# Custom sorting with lambda function
+arr = [(1, 3), (2, 1), (3, 2)]
+arr.sort(key=lambda x: x[1]) # Sort by second element of the tuple
+print(arr)  # [(2, 1), (3, 2), (1, 3)]
+arr.sort(key=lambda x: (x[1], x[0])) # Sort by second element, then by first element
+print(arr)  # [(2, 1), (3, 2), (1, 3)]
+
+
+
+
+
+# List comprehensions: concise way to create lists
+# Create a list of squares of numbers from 0 to 4
+squares = [x**2 for x in range(5)]
+print(squares)  # [0, 1, 4, 9, 16]
+
+arr = [[0]*4 for _ in range(3)] # 2D array 3x4 initialized with 0
+print(arr)  # [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+
+# Be careful when creating 2D arrays
+# The following creates references to the same inner list
+arr = [[0] * 4] * 3 # Incorrect way to create 2D array
+print(arr)  # [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+arr[0][0] = 1
+print(arr)  # [[1, 0, 0, 0], [1, 0, 0, 0], [1, 0, 0, 0]] all rows affected due to reference issue
