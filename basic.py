@@ -380,3 +380,29 @@ for val in myMap.values():
 # Loop through key-value pairs (items)
 for key, val in myMap.items():
     print(key, val)  # Access key and value
+
+
+
+
+# Tuples: immutable ordered collections
+# Tuples are like lists but cannot be modified after creation
+t = (1, 2, 3)
+print(t)  # (1, 2, 3)
+print(t[0])  # 1
+print(len(t))  # 3
+
+# Can't modify tuples
+# t[0] = 10  # TypeError: 'tuple' object does not support item assignment
+
+ # Tuples can be used as keys in hash map/set (unlike lists)
+myMap = { (1, 2): 3 } # tuple as key
+print(myMap)  # {(1, 2): 3}
+print(myMap[(1, 2)])  # 3
+
+mySet = set()
+mySet.add((4, 5)) # tuple as element
+print(mySet)  # {(4, 5)}
+print((4, 5) in mySet)  # True
+
+# List can't be used as keys in hash map/set
+# myMap = { [1, 2]: 3 }  # TypeError: unhashable type: 'list'
