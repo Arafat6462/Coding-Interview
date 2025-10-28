@@ -257,3 +257,39 @@ arr = [[0] * 4] * 3 # Incorrect way to create 2D array
 print(arr)  # [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 arr[0][0] = 1
 print(arr)  # [[1, 0, 0, 0], [1, 0, 0, 0], [1, 0, 0, 0]] all rows affected due to reference issue
+
+
+
+
+# String are similar to arrays/lists
+s = "hello"
+print(s[1])  # 'e'
+print(s[-1]) # 'o'
+print(s[1:4]) # 'ell'
+
+# But strings are immutable. 
+# Can't change characters/replace characters in place.
+# s[1] = 'a'  # TypeError: 'str' object does not support item assignment
+
+# String modification creates new strings
+s += " world"  # creates a new string
+print(s)  # 'hello world'
+
+# valid numberic strings can be converted to int/float
+print(int("123") + 1)  # 124
+print(float("3.14")) # 3.14
+
+# Numers can be converted to strings
+print(str(123) + "4")  # '1234'
+
+# For ascii values, use ord() and chr()
+# ord() gets ascii value of character
+# chr() gets character from ascii value
+print(ord('a'))  # 97
+print(chr(97))   # 'a'
+
+# Combine/join list of strings (with a separator/delimiter)
+# inside the quotes is the separator and join() is called on that separator.
+strings = ["hello", "world", "from", "python"]
+print(" ".join(strings))  # 'hello world from python'
+print("-".join(strings))  # 'hello-world-from-python'
